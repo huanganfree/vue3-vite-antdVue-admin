@@ -1,0 +1,83 @@
+<template>
+  <a-layout class="layout-content">
+    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible width="230">
+      <div class="project-name">vue+vite</div>
+      <Menu />
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header style="background: #fff; padding: 0">
+        <menu-unfold-outlined
+          v-if="collapsed"
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
+        <menu-fold-outlined
+          v-else
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
+      </a-layout-header>
+      <a-layout-content
+        :style="{
+          margin: '24px 16px',
+          padding: '24px',
+          background: '#fff',
+          minHeight: '280px',
+        }"
+      >
+        <router-view></router-view>
+      </a-layout-content>
+    </a-layout>
+  </a-layout>
+</template>
+<script>
+import {
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+} from "@ant-design/icons-vue";
+import Menu from "@/components/Menu/index.vue";
+export default {
+  name: "App",
+  components: {
+    MenuUnfoldOutlined,
+    MenuFoldOutlined,
+    Menu,
+  },
+  data() {
+    return {
+      collapsed: false,
+    };
+  },
+};
+</script>
+<style scoped>
+.layout-content {
+  height: 100vh;
+}
+.layout-content .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.layout-content .trigger:hover {
+  color: #1890ff;
+}
+
+.layout-content .project-name {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 16px;
+  display: flex;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+</style>
