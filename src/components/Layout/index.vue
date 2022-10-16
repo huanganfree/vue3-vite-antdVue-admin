@@ -5,7 +5,7 @@
       <Menu />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
+      <a-layout-header class="layout-header" style="background: #fff; padding: 0">
         <menu-unfold-outlined
           v-if="collapsed"
           class="trigger"
@@ -16,6 +16,10 @@
           class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
+        <a-breadcrumb>
+          <a-breadcrumb-item>Home</a-breadcrumb-item>
+          <a-breadcrumb-item>An Application</a-breadcrumb-item>
+        </a-breadcrumb>
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -31,10 +35,7 @@
   </a-layout>
 </template>
 <script>
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-} from "@ant-design/icons-vue";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
 import Menu from "@/components/Menu/index.vue";
 export default {
   name: "App",
@@ -51,12 +52,15 @@ export default {
 };
 </script>
 <style scoped>
+.layout-header{
+  display: flex;
+  align-items: center;
+}
 .layout-content {
   height: 100vh;
 }
 .layout-content .trigger {
   font-size: 18px;
-  line-height: 64px;
   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
