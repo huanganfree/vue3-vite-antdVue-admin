@@ -1,4 +1,4 @@
-# vue-vite-antdVue-admin
+# vue3-vite-antdVue-admin
 
 This template should help get you started developing with Vue 3 in Vite.
 
