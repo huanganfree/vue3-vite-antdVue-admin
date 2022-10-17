@@ -6,9 +6,9 @@
     theme="dark"
     @select="handleSelect"
   >
-    <template v-for="item in menuList" :key="item.path">
+    <template v-for="item in menuList" :key="item.name">
       <template v-if="!item.children">
-        <a-menu-item :key="item.path">
+        <a-menu-item :key="item.name">
           <template #icon>
             <IconFont :type="item.meta.icon" />
           </template>
@@ -16,7 +16,7 @@
         </a-menu-item>
       </template>
       <template v-else>
-        <sub-menu :key="item.path" :menu-info="item" />
+        <sub-menu :key="item.name" :menu-info="item" />
       </template>
     </template>
   </a-menu>
@@ -40,7 +40,7 @@ export default {
   },
   watch: {
     $route(to) {
-      this.handleSelect({ selectedKeys: [to.path] });
+      this.handleSelect({ selectedKeys: [to.name] });
       this.getSelectOpenMenu();
     },
   },
@@ -54,22 +54,25 @@ export default {
     },
     getMenusData() {
       let asyncRoutes = localStorage.getItem("const_routes");
-      asyncRoutes = JSON.parse(asyncRoutes);
-      this.menuList = asyncRoutes;
-      this.selectedKeys = [this.menuList[0].path];
+      this.menuList = JSON.parse(asyncRoutes);
+      const selectMenu = localStorage.getItem("select_menu") || "[]";
+      const selectedKeys = JSON.parse(selectMenu);
+      const finalPath = selectedKeys.length ? selectedKeys :[this.menuList[0].name] 
+      this.handleSelect({ selectedKeys: finalPath })
     },
     getSelectOpenMenu() {
-      const selectMenu = localStorage.getItem("select_menu") || "[]";
-      this.selectedKeys = JSON.parse(selectMenu);
+      
       // this.$router.getRoutes() 拍平所有路由
       const targetMenu = this.$router
         .getRoutes()
-        .find((r) => this.selectedKeys.includes(r.path));
-      this.openKeys = targetMenu.meta.namePath.slice(0);
+        .find((r) => this.selectedKeys.includes(r.name));
+      this.$emit('target-menu', targetMenu)
+      this.openKeys = targetMenu.meta.namePath.slice(0).map(item => item.path);
     },
     handleSelect({ selectedKeys }) {
+      this.selectedKeys = selectedKeys;
       localStorage.setItem("select_menu", JSON.stringify(selectedKeys));
-      this.$router.push(selectedKeys[0]);
+      this.$router.push({name: selectedKeys[0]});
     },
   },
 };

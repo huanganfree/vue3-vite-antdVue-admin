@@ -39,7 +39,7 @@ generatorNamePath(ConstantRoutes)
 function generatorNamePath(routes, namePath) {
   routes.forEach(item => {
     if (item.meta) {
-      item.meta.namePath = Array.isArray(namePath) ? namePath.concat(item.path) : [item.path]
+      item.meta.namePath = Array.isArray(namePath) ? namePath.concat({path: item.name, name: item.meta.title}) : [{path: item.name, name: item.meta.title}]
     }
     if (item.children) {
       generatorNamePath(item.children, item.meta.namePath)

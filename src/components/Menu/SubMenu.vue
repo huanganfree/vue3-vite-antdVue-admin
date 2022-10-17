@@ -1,12 +1,12 @@
 <template>
-  <a-sub-menu :key="menuInfo.path">
+  <a-sub-menu :key="menuInfo.name">
     <template #icon>
       <IconFont :type="menuInfo.meta.icon" />
     </template>
     <template #title>{{ menuInfo.meta.title }}</template>
-    <template v-for="item in menuInfo.children" :key="item.path">
+    <template v-for="item in menuInfo.children" :key="item.name">
       <template v-if="!item.children">
-        <a-menu-item :key="item.path">
+        <a-menu-item :key="item.name">
           <template #icon>
             <IconFont :type="item.meta.icon" />
           </template>
@@ -14,7 +14,7 @@
         </a-menu-item>
       </template>
       <template v-else>
-        <sub-menu :menu-info="item" :key="item.key" />
+        <sub-menu :menu-info="item" :key="item.name" />
       </template>
     </template>
   </a-sub-menu>

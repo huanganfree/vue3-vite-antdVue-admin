@@ -2,7 +2,7 @@
   <a-layout class="layout-content">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible width="230">
       <div class="project-name">vue+vite</div>
-      <Menu />
+      <Menu @target-menu="handleGetTargetMenu" />
     </a-layout-sider>
     <a-layout>
       <a-layout-header class="layout-header" style="background: #fff; padding: 0">
@@ -17,8 +17,9 @@
           @click="() => (collapsed = !collapsed)"
         />
         <a-breadcrumb>
-          <a-breadcrumb-item>Home</a-breadcrumb-item>
-          <a-breadcrumb-item>An Application</a-breadcrumb-item>
+          <a-breadcrumb-item v-for="item in breadcrumbData" :key="item.name">
+            <a @click="$router.push({name: item.path})">{{item.name}}</a>
+          </a-breadcrumb-item>
         </a-breadcrumb>
       </a-layout-header>
       <a-layout-content
@@ -47,7 +48,13 @@ export default {
   data() {
     return {
       collapsed: false,
+      breadcrumbData: []
     };
+  },
+  methods: {
+    handleGetTargetMenu(data) {
+      this.breadcrumbData = data.meta.namePath
+    }
   },
 };
 </script>
