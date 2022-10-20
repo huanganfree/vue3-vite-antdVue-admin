@@ -24,13 +24,13 @@
       </a-layout-header>
       <a-layout-content
         :style="{
-          margin: '24px 16px',
-          padding: '24px',
+          margin: '10px',
+          padding: '10px',
           background: '#fff',
           minHeight: '280px',
         }"
       >
-        <router-view></router-view>
+        <Tabs></Tabs>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -38,12 +38,14 @@
 <script>
 import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
 import Menu from "@/components/Menu/index.vue";
+import Tabs from '@/components/Tabs/tabs.vue';
 export default {
   name: "App",
   components: {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     Menu,
+    Tabs
   },
   data() {
     return {
