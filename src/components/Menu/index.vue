@@ -53,9 +53,9 @@ export default {
       this.getSelectOpenMenu();
     },
     getMenusData() {
-      let asyncRoutes = localStorage.getItem("const_routes");
+      let asyncRoutes = sessionStorage.getItem("const_routes");
       this.menuList = JSON.parse(asyncRoutes);
-      const selectMenu = localStorage.getItem("select_menu") || "[]";
+      const selectMenu = sessionStorage.getItem("select_menu") || "[]";
       const selectedKeys = JSON.parse(selectMenu);
       const finalPath = selectedKeys.length ? selectedKeys :[this.menuList[0].name] 
       this.handleSelect({ selectedKeys: finalPath })
@@ -71,7 +71,7 @@ export default {
     },
     handleSelect({ selectedKeys }) {
       this.selectedKeys = selectedKeys;
-      localStorage.setItem("select_menu", JSON.stringify(selectedKeys));
+      sessionStorage.setItem("select_menu", JSON.stringify(selectedKeys));
       this.$router.push({name: selectedKeys[0]});
     },
   },

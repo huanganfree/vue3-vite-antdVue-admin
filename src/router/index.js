@@ -1,9 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/components/Layout/index.vue'
-
-
 import ConstantRoutes from './constantRoutes'
-
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -49,7 +46,7 @@ function generatorNamePath(routes, namePath) {
 
 
 
-localStorage.setItem('const_routes', JSON.stringify(ConstantRoutes))
+sessionStorage.setItem('const_routes', JSON.stringify(ConstantRoutes))
 
 router.beforeEach((to, from, next) => {
   next()

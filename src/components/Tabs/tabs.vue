@@ -30,16 +30,6 @@ watch(() => route, (newVal) => {
 }, { immediate: true, deep: true })
 
 
-function onEdit({ targetKey }) {
-  const index = panes.value.findIndex(item => item.path == targetKey)
-  if (index == panes.value.length - 1) {
-    const { path } = panes.value[panes.value.length - 2]
-    activeKey.value = path
-    router.push(activeKey.value)
-  }
-  panes.value.splice(panes.value.length - 1, 1)
-
-}
 
 function onTabChange(active) {
   activeKey.value = active

@@ -30,7 +30,8 @@
           minHeight: '280px',
         }"
       >
-        <Tabs></Tabs>
+        <!-- <Tabs></Tabs> -->
+        <router-view></router-view>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -90,7 +91,4 @@ export default {
   justify-content: center;
 }
 
-.site-layout .site-layout-background {
-  background: #fff;
-}
 </style>
