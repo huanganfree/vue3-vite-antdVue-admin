@@ -97,6 +97,18 @@ const FormItemConfig = [
         ]
     },
     {
+        label: '菜单图标',
+        vModel: 'menuIcon',
+        type: 'single-select',
+        defaultValue: undefined,
+        rules: [
+            {
+                required: true,
+                message: '请选择'
+            }
+        ]
+    },
+    {
         label: '是否显示',
         vModel: 'isShow',
         type: 'switch',

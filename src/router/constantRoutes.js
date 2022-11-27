@@ -1,18 +1,8 @@
-import HomeView from '../views/HomeView.vue'
 import PageView from '@/components/PageView/PageView.vue'
 
 export default [
   {
-    path: '/home',
-    name: 'home',
-    component: HomeView,
-    meta: {
-      icon: 'icon-zhuye',
-      title: '主页'
-    }
-  },
-  {
-    path: '/about',
+    path: 'about',
     name: 'about',
     component: () => import('@/components/PageView/PageView.vue'),
     meta: {
@@ -54,7 +44,7 @@ export default [
     ]
   },
   {
-    path: '/system',
+    path: 'system',
     name: 'system',
     component: () => import('@/components/PageView/PageView.vue'),
     meta: {

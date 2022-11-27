@@ -28,3 +28,4 @@ coverage
 *.sw?
 *.rar
 *.zip
+/Server/node_modules
