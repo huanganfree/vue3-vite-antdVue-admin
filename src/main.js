@@ -5,6 +5,7 @@ import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
 import './assets/common.less'
+import './utils/rem';
 
 const app = createApp(App)
 

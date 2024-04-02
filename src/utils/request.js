@@ -1,7 +1,6 @@
 import axios from "axios";
 import { message } from 'ant-design-vue';
 
-// 这里就是提供了实例的默认值，可以在具体请求方法中覆写
 const service = axios.create({
   baseURL: 'http://localhost:8000',
   timeout: 7000
