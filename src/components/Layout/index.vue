@@ -1,35 +1,20 @@
 <template>
   <a-layout class="layout-content">
-    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible width="230">
-      <div class="project-name">vue+vite</div>
+    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible class="layout-sider">
+      <div class="project-name" v-if="!collapsed">vue+vite</div>
       <Menu @target-menu="handleGetTargetMenu" />
     </a-layout-sider>
     <a-layout>
       <a-layout-header class="layout-header" style="background: #fff; padding: 0">
-        <menu-unfold-outlined
-          v-if="collapsed"
-          class="trigger"
-          @click="() => (collapsed = !collapsed)"
-        />
-        <menu-fold-outlined
-          v-else
-          class="trigger"
-          @click="() => (collapsed = !collapsed)"
-        />
+        <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
+        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
         <a-breadcrumb>
           <a-breadcrumb-item v-for="item in breadcrumbData" :key="item.name">
-            <a @click="$router.push({name: item.path})">{{item.name}}</a>
+            <a @click="$router.push({ name: item.path })">{{ item.name }}</a>
           </a-breadcrumb-item>
         </a-breadcrumb>
       </a-layout-header>
-      <a-layout-content
-        :style="{
-          margin: '10px',
-          padding: '10px',
-          background: '#fff',
-          minHeight: '280px',
-        }"
-      >
+      <a-layout-content :style="{}" class="layout-content-area">
         <!-- <Tabs></Tabs> -->
         <router-view></router-view>
       </a-layout-content>
@@ -61,13 +46,20 @@ export default {
   },
 };
 </script>
-<style scoped>
-.layout-header{
+<style scoped lang="less">
+.layout-header {
   display: flex;
   align-items: center;
 }
+
 .layout-content {
   height: 100vh;
+}
+
+.layout-sider{
+  flex: 0 0 180px !important;
+  width: 180px !important;
+  max-width:max-content  !important;
 }
 .layout-content .trigger {
   font-size: 18px;
@@ -82,7 +74,7 @@ export default {
 
 .layout-content .project-name {
   height: 32px;
-  background: rgba(255, 255, 255, 0.3);
+  /* background: rgba(255, 255, 255, 0.3); */
   margin: 16px;
   display: flex;
   font-size: 20px;
@@ -91,4 +83,10 @@ export default {
   justify-content: center;
 }
 
+.layout-content-area {
+  margin: 10px;
+  padding: 10px;
+  background: #fff;
+  min-height: 280px;
+}
 </style>

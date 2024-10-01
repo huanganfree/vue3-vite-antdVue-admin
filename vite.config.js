@@ -21,7 +21,7 @@ export default defineConfig({
     postcss: {
       plugins: [
         postCssPxToRem({
-          rootValue: 14,
+          rootValue: 14, // html的 font-size 的值，也就是换算为rem的基数
           unitPrecision: 5,
           propList: ["*"],
           selectorBlackList: [

@@ -1,13 +1,21 @@
 <template>
-    <div class="btn-area margin_button10">
-        <a-button type="primary" @click="modalVisible = true">新增</a-button>
+    <div class="menu-wrapper" ref="menuRef">
+        <div class="btn-area margin_button10">
+            <a-button type="primary" @click="modalVisible = true">新增</a-button>
+        </div>
+        <a-modal :visible="true" v-if="modalVisible" :title="'新增菜单'" @cancel="modalVisible = false"
+            @ok="handleAddMenuSubmit" class="modal-area" :getContainer="() => menuRef">
+            <Form :FormItemConfig="FormItemConfig" :formEditData="formEditData" ref="formRef" />
+        </a-modal>
     </div>
-    <a-modal :visible="true" v-if="modalVisible" :title="'新增菜单'" width="800px" @cancel="modalVisible = false" @ok="handleAddMenuSubmit">
-        <Form :FormItemConfig="FormItemConfig" :formEditData="formEditData" ref="formRef"/>
-    </a-modal>
 </template>
-<style lang="less">
-.btn-area{
+<style >
+.modal-area {
+    width: 800px !important;
+}
+</style>
+<style lang="less" scoped>
+.btn-area {
     text-align: right;
 }
 </style>
@@ -15,9 +23,10 @@
 import { ref } from 'vue';
 import Form from '@/components/Form/Form.vue'
 
-const modalVisible = ref(true)
+const modalVisible = ref(false)
 const formRef = ref(null)
 const formEditData = ref({})
+const menuRef = ref(null)
 const FormItemConfig = [
     {
         label: '菜单类型',
