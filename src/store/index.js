@@ -1,18 +1,14 @@
-import { createStore } from 'vuex'
+import { defineStore } from "pinia"
+import { computed, ref } from "vue"
 
-// 创建一个新的 store 实例
-const store = createStore({
-  state () {
-    return {
-      count: 0
-    }
-  },
-  mutations: {
-    increment (state) {
-      state.count++
-    }
+export const useUnReadNumStore = defineStore('unReadNum', () => {
+  const unReadNum = ref(12)
+  function increment() {
+    unReadNum.value++
   }
+  function decrement() {
+    if(unReadNum.value >= 1)
+    unReadNum.value--
+  }
+  return { unReadNum, decrement, increment }
 })
-
-
-export default store

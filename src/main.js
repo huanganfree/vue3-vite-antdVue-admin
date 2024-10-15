@@ -3,12 +3,13 @@ import App from './App.vue'
 import router from './router'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
-
-import store from './store/index'
+import { createPinia } from 'pinia'
 
 import './assets/common.less'
 import './utils/rem';
 
+const pinia = createPinia()
+
 const app = createApp(App)
 
-app.use(router).use(store).use(Antd).mount('#app')
+app.use(router).use(pinia).use(Antd).mount('#app')

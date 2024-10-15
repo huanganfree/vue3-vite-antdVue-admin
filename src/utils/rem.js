@@ -13,7 +13,7 @@
     if (deviceWidth >=  1920) { // 保持font-size值不变。
       deviceWidth = 1920;
     }
-    doc.documentElement.style.fontSize = deviceWidth / (1920 / 14) + 'px';
+    doc.documentElement.style.fontSize = deviceWidth / (1920 / 14) + 'px'; // 1920设计稿为参照
   }
   window.addEventListener('resize', fn , false);
   doc.addEventListener('DOMContentLoaded',fn,false);
