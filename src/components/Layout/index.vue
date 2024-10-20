@@ -88,5 +88,6 @@ export default {
   padding: 10px;
   background: #fff;
   min-height: 280px;
+  overflow: auto;
 }
 </style>

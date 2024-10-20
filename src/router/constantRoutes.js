@@ -1,4 +1,3 @@
-import PageView from '@/components/PageView/PageView.vue'
 
 export default [
   {
@@ -40,6 +39,27 @@ export default [
             }
           }
         ]
+      }
+    ]
+  },
+  {
+    path: 'charts',
+    name: 'charts',
+    component: () => import('@/components/PageView/PageView.vue'),
+    meta: {
+      icon: 'icon-xitongguanli',
+      title: '图表'
+    },
+    redirect: {name: 'map'},
+    children: [
+      {
+        path: 'map',
+        name: 'map',
+        component: () => import('../views/charts/index.vue'),
+        meta: {
+          icon: 'icon-caidanguanli',
+          title: '省地图'
+        }
       }
     ]
   },
