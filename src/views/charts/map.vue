@@ -48,10 +48,109 @@ function initData() {
                 map: 'jiangsu', // 引入地图数据
                 data: [
                     {
-                        name: "盐城市",
+                        name: "徐州市",
                         a: 21, // 展项
-                        b: 22 // 内容
+                        b: 22,// 内容
+                        itemStyle: {
+                            areaColor: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [
+                                    {
+                                        offset: 0, color: 'rgb(14,52,172)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 0.5, color: 'rgb(22,65,191)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 1, color: 'rgb(25,69,199)' // 100% 处的颜色
+                                    }
+                                ],
+                                global: false // 缺省为 false
+                            },
+                        }
                     },
+                    {
+                        name: "连云港市",
+                        a: 21, // 展项
+                        b: 22,// 内容
+                        itemStyle: {
+                            areaColor: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [
+                                    {
+                                        offset: 0, color: 'rgb(18,61,161)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 0.5, color: 'rgb(18,57,181)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 1, color: 'rgb(21,63,189)' // 100% 处的颜色
+                                    }
+                                ],
+                                global: false // 缺省为 false
+                            },
+                        }
+                    },
+                    {
+                        name: "宿迁市",
+                        a: 21, // 展项
+                        b: 22,
+                        itemStyle: {
+                            areaColor: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [
+                                    {
+                                        offset: 0, color: 'rgb(22,64,190)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 0.5, color: 'rgb(25,68,197)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 1, color: 'rgb(29,74,205)' // 100% 处的颜色
+                                    }
+                                ],
+                                global: false // 缺省为 false
+                            },
+                        }
+                    },
+                    {
+                        name: "淮安市",
+                        a: 21, // 展项
+                        b: 22,
+                        itemStyle: {
+                            areaColor: {
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [
+                                    {
+                                        offset: 0, color: 'rgb(22,64,190)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 0.5, color: 'rgb(25,68,197)' // 0% 处的颜色
+                                    },
+                                    {
+                                        offset: 1, color: 'rgb(29,74,205)' // 100% 处的颜色
+                                    }
+                                ],
+                                global: false // 缺省为 false
+                            },
+                        }
+                    }
                 ],
                 itemStyle: {
                     color: '#fff',
@@ -60,14 +159,14 @@ function initData() {
                     shadowBlur: 2,
                     shadowOffsetX: 0,
                     shadowOffsetY: 1,
-                    borderColor: 'rgb(162, 219, 245)',
+                    borderColor: 'rgb(100, 170, 237)',
                 },
                 selectedMode: false,
                 label: {
                     show: true,
                     color: '#fff',
                     fontSize: 10,
-                    fontWeight: 400
+                    fontWeight: 200
                 },
                 geo: {
                     rotate: [145, 0]
@@ -79,7 +178,7 @@ function initData() {
                     itemStyle: {
                         color: '#fff',
                         borderColor: 'rgb(194, 247, 252)',
-                        borderWidth: 3,
+                        borderWidth: 2,
                         areaColor: 'rgb(94, 143, 220)'
                     },
                     label: {
