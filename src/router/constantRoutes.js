@@ -58,7 +58,7 @@ export default [
         component: () => import('../views/charts/index.vue'),
         meta: {
           icon: 'icon-caidanguanli',
-          title: '省地图'
+          title: '图表系列'
         }
       }
     ]
