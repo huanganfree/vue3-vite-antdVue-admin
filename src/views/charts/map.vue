@@ -4,20 +4,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import * as echarts from "echarts";
 import test from '../../data/jiangsu.json'
+import { useChartsBuild } from "./useChartsBuild";
 
-console.log(test);
+const {
+    containerRef
+} = useChartsBuild(initData)
 
-const containerRef = ref(null);
-onMounted(() => {
-    initData()
-});
+function initData(myChart) {
 
-
-function initData() {
-    var myChart = echarts.init(containerRef.value);
     echarts.registerMap('jiangsu', test); // 注册地图
     let option = {
         tooltip: {

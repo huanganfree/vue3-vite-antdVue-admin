@@ -4,18 +4,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
 import * as echarts from "echarts";
 
+import { useChartsBuild } from "./useChartsBuild";
 
-const containerRef = ref(null);
-onMounted(() => {
-    initData()
-});
+const {
+    containerRef
+} = useChartsBuild(initData)
 
 
-function initData() {
-    var myChart = echarts.init(containerRef.value);
+function initData(myChart) {
     let option = {
         xAxis: {
             type: 'category',
