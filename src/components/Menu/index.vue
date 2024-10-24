@@ -5,6 +5,7 @@
     mode="inline"
     theme="dark"
     @select="handleSelect"
+    class="menu-wrapper"
   >
     <template v-for="item in menuList" :key="item.name">
       <template v-if="!item.children">
@@ -40,6 +41,7 @@ export default {
   },
   watch: {
     $route(to) {
+      console.log('to==', to);
       this.handleSelect({ selectedKeys: [to.name] });
       this.getSelectOpenMenu();
     },
@@ -78,4 +80,9 @@ export default {
 };
 </script>
 
-<style scoped lang="css"></style>
+<style scoped lang="less">
+.menu-wrapper{
+  height: calc(100% - 64px);
+  overflow-y: auto;
+}
+</style>

@@ -27,7 +27,7 @@ export default defineConfig({
           selectorBlackList: [
             "ant-spin-dot",
             "ant-spin-dot-item",
-            "project-name",
+            // "project-name",
           ],
           // exclude: /node_modules/i
         }),
