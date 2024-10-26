@@ -20,6 +20,7 @@ function initData(myChart) {
             trigger: "item",
             borderWidth: 0,
             padding: 0,
+            backgroundColor: 'transparent',
             formatter: function (params) {
                 const { a, b, name } = params.data || {}
                 return `<div class="tooltip-wrapper">
@@ -193,7 +194,7 @@ function initData(myChart) {
     padding: 10px;
     border-radius: 6.833px;
     border: 0.854px solid rgba(255, 255, 255, 0.40);
-    background: linear-gradient(180deg, rgba(88, 169, 255, 0.47) 0%, rgba(63, 83, 248, 0.47) 100%);
+    background: transparent;
     box-shadow: 0px 3.417px 25.625px 0px rgba(5, 21, 71, 0.25);
     backdrop-filter: blur(12.812499046325684px);
 

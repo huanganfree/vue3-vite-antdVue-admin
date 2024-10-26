@@ -15,7 +15,7 @@ import StackBar from './stackBar.vue';
 </script>
 <style lang="less" scoped>
 .marginRight15{
-  margin-right: 15px;
+  margin: 0 15px 10px 0;
 }
 .charts{
   display: flex;
