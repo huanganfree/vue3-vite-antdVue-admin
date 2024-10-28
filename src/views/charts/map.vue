@@ -20,7 +20,7 @@ function initData(myChart) {
             trigger: "item",
             borderWidth: 0,
             padding: 0,
-            backgroundColor: 'transparent',
+            backgroundColor: 'transparent', // 重点配置项
             formatter: function (params) {
                 const { a, b, name } = params.data || {}
                 return `<div class="tooltip-wrapper">
@@ -196,7 +196,7 @@ function initData(myChart) {
     border: 0.854px solid rgba(255, 255, 255, 0.40);
     background: transparent;
     box-shadow: 0px 3.417px 25.625px 0px rgba(5, 21, 71, 0.25);
-    backdrop-filter: blur(12.812499046325684px);
+    backdrop-filter: blur(12.812499046325684px); // 背景模糊
 
     .flex {
         display: flex;
