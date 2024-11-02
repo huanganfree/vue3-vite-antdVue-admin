@@ -8,7 +8,7 @@ export default [
       icon: 'icon-guanyu',
       title: '关于'
     },
-    redirect: { name: 'directions' },
+    redirect: { name: 'directions' }, // 这里redirect属性的目的是，用于在面包屑路径中，点击“关于”（重定向）跳转到该路径
     children: [
       {
         path: 'details',
@@ -43,11 +43,32 @@ export default [
     ]
   },
   {
+    path: 'miniProgram',
+    name: 'miniProgram',
+    component: () => import('@/components/PageView/PageView.vue'),
+    meta: {
+      icon: 'icon-xiaochengxu',
+      title: '小程序'
+    },
+    redirect: {name: 'h5'},
+    children: [
+      {
+        path: 'h5',
+        name: 'h5',
+        component: () => import('../views/miniProgram/h5ToMiniProgram.vue'),
+        meta: {
+          icon: 'icon-H',
+          title: 'h5返回小程序'
+        }
+      }
+    ]
+  },
+  {
     path: 'charts',
     name: 'charts',
     component: () => import('@/components/PageView/PageView.vue'),
     meta: {
-      icon: 'icon-xitongguanli',
+      icon: 'icon-tubiao-bingtu',
       title: '图表'
     },
     redirect: {name: 'map'},
@@ -57,7 +78,7 @@ export default [
         name: 'map',
         component: () => import('../views/charts/index.vue'),
         meta: {
-          icon: 'icon-caidanguanli',
+          icon: 'icon-tubiao-bingtu',
           title: '图表系列'
         }
       }
