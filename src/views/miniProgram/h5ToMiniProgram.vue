@@ -22,7 +22,11 @@ function getSearchString(key, Url) {
 }
 
 onBeforeMount(() => {
-    // 注意：这里使用window.location.href可以拿到由小程序跳转h5传过来的查询参数
+    /**
+     * 注意：这里使用window.location.href可以拿到由小程序跳转h5传过来的查询参数,只不过这是完整的url。该项目是vue3项目，只能用这种方式获取查询参数
+     * 而在uniapp开发中，可以使用onload钩子获取传参，参数类型为Object（用于页面传参)
+     * 
+     *  */ 
     var href = window.location.href;
     console.log('href==', href);
 });
