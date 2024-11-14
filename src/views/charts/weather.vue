@@ -4,7 +4,8 @@
         <div>获取天气</div>
         <div class="weatherNow">
             <i :class="`qi-${weatherNow.icon}`" ></i>
-            <span>{{ weatherNow.temp }}</span>
+            <span class="center">{{ weatherNow.text }}</span>
+            <span>{{ weatherNow.temp }}℃</span>
         </div>
     </div>
 </template>
@@ -15,6 +16,9 @@
 
 .weatherNow{
     font-size: 24px;
+    .center{
+        margin: 0 20px;
+    }
 }
 </style>
 <script setup>
@@ -37,7 +41,8 @@ function initData() {
             if(code == 200) {
                 weatherNow.value = {
                     temp: now.temp,
-                    icon: now.icon
+                    icon: now.icon,
+                    text: now.text
                 }
             }
         })
