@@ -1,9 +1,11 @@
 <template>
   <div class="charts">
-    <Map class="marginRight15"/>
+    <Map class="marginRight15" />
     <Bar class="marginRight15" />
-    <Line class="marginRight15"/>
-    <StackBar />
+    <Line class="marginRight15" />
+    <StackBar class="marginRight15"/>
+    <Pie class="marginRight15"/>
+    <Weather />
   </div>
 </template>
 
@@ -12,12 +14,15 @@ import Map from './map.vue'
 import Bar from './bar.vue'
 import Line from './line.vue'
 import StackBar from './stackBar.vue';
+import Pie from './pie.vue';
+import Weather from './weather.vue';
 </script>
 <style lang="less" scoped>
-.marginRight15{
+.marginRight15 {
   margin: 0 15px 10px 0;
 }
-.charts{
+
+.charts {
   display: flex;
   align-items: center;
   flex-wrap: wrap;

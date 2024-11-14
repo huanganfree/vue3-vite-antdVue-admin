@@ -1,52 +1,47 @@
 <template>
-    <div class="wrapper" ref="containerRef">
+    <div class="wrapper">
+        <h3>和风天气开发</h3>
+        <div>获取天气</div>
+        <div class="weatherNow">
+            <i :class="`qi-${weatherNow.icon}`" ></i>
+            <span>{{ weatherNow.temp }}</span>
+        </div>
     </div>
 </template>
-
-<script setup>
-import * as echarts from "echarts";
-
-
-import { useChartsBuild } from "./useChartsBuild";
-
-const {
-    containerRef
-} = useChartsBuild(initData)
-
-function initData(myChart) {
-    let option = {
-        xAxis: {
-            type: 'category',
-            boundaryGap: false,
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [
-            {
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
-                type: 'line',
-                areaStyle: {},
-                lineStyle: {
-                    color: '#2EF1FF'
-                },
-                symbol: "none",
-                smooth: true,
-                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0, color: '#2E94FF' // 0% 处的颜色
-                }, {
-                    offset: 0.4, color: '#2E94FF' // 100% 处的颜色
-                }, {
-                    offset: 1, color: '#e4f2ff' // 100% 处的颜色
-                }]
-                )
-            }
-        ]
-    };
-    myChart.setOption(option);
+<style lang="less" scoped>
+.qi-100{
+    color: rgb(237, 209, 0);
 }
 
+.weatherNow{
+    font-size: 24px;
+}
+</style>
+<script setup>
+import axios from "axios";
+import { ref } from "vue";
+
+const weatherNow = ref({})
+
+initData()
+function initData() {
+    axios.get('https://devapi.qweather.com/v7/weather/now', {
+        params: {
+            key: '0f8a8ab8d75d447cbeda2d305796b448',
+            location: '118.80,32.06'
+        }
+    })
+        .then(res => {
+            console.log(res);
+            const { now, code } = res.data
+            if(code == 200) {
+                weatherNow.value = {
+                    temp: now.temp,
+                    icon: now.icon
+                }
+            }
+        })
+}
 </script>
 <style lang="less">
 .tooltip-wrapper {
@@ -103,6 +98,11 @@ function initData(myChart) {
         }
     }
 
+}
+
+.topWrapper {
+    color: red;
+    font-size: 23px;
 }
 </style>
 <style lang="less" scoped>

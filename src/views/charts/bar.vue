@@ -5,8 +5,10 @@
 
 <script setup>
 import * as echarts from "echarts";
-
 import { useChartsBuild } from "./useChartsBuild";
+import FetchJPG from '@/assets/images/fetch.jpg';
+
+
 
 const {
     containerRef
@@ -15,6 +17,9 @@ const {
 
 function initData(myChart) {
     let option = {
+        tooltip: {
+            show: true
+        },
         xAxis: {
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -22,12 +27,11 @@ function initData(myChart) {
         yAxis: {
             type: 'value'
         },
-        barWidth: 8,
+        barWidth: 18,
         series: [
             {
-                data: [120, 200, 150, 80, 70, 110, 130],
+                data: [60, 60, 60, 80, 70, 110, 130],
                 type: 'bar',
-                showBackground: true,
                 backgroundStyle: {
                     color: 'rgba(30, 49, 189, .05)'
                 },
@@ -47,7 +51,17 @@ function initData(myChart) {
                             color: '#0048FF'
                         }
                     ])
-                }
+                },// 重点是 下方代码
+                emphasis: {
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: function () { // 返回不了标签
+                            let htmlText = `<div class="topWrapper">哈哈</div>`
+                            return htmlText
+                        }
+                    }
+                },
             }
         ]
     };
@@ -110,6 +124,11 @@ function initData(myChart) {
         }
     }
 
+}
+
+.topWrapper{
+    color: red;
+    font-size: 23px;
 }
 </style>
 <style lang="less" scoped>
