@@ -1,11 +1,14 @@
 <template>
     <div class="parent">
         <div class="wrapper" ref="containerRef"></div>
+        <div class="text">接啊哈哈发</div>
     </div>
 </template>
 
 <script setup>
+import { normalFlat } from "three/webgpu";
 import { useChartsBuild } from "./useChartsBuild";
+import { color } from "echarts";
 
 const {
     containerRef
@@ -14,15 +17,66 @@ const {
 
 function initData(myChart) {
     let option = {
-        series: [{
-            radius: [0, '50%'],
-            type: 'pie',
-            data: [1, 2]
-        }]
+        title: {
+            text: '主标题',
+            // 副标题
+            subtext: "50%",
+            // 主副标题间距
+            itemGap: 4,
+            x: 'center',
+            y: 'center',
+            top: '30%',
+            // 主标题样式
+            textStyle: {
+
+                fontSize: '18',
+                color: 'black',
+                lineHeight: 22,
+                color: '#fff',
+                fontWeight: '700',
+            },
+            // 副标题样式
+            subtextStyle: {
+                fontSize: '14',
+                fontWeight: '300',
+                color: '#86909C'
+            }
+        },
+        // 自定义中心内容的话需要把这个关闭
+        emphasis: {
+            label: {
+                show: false
+            }
+        },
+        legend: {
+            show: false,
+        },
+        tooltip: {
+            show: false
+        },
+        series: [
+            {
+                radius: ['76%', '86%'],
+                type: 'pie',
+                data: [2, 4, 5],
+                emphasis: {
+                    disabled: true
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    borderRadius: 10,
+                    borderJoin: 'miter',
+                    borderMiterLimit: 20
+                }
+            }
+        ]
     }
     myChart.setOption(option);
 }
-
 
 // 绘制自定义标签
 function updateLabels(chart) {
@@ -58,15 +112,16 @@ function updateLabels(chart) {
 <style lang="less" scoped>
 .parent {
     display: flex; // flex导致echarts布局不在dom节点内
-    // width: 700px;
+    width: 700px;
     align-items: center;
 }
 
 .wrapper {
-    width: 398px;
-    height: 506px;
+    width: 157px;
+    height: 157px;
     border-radius: 18px;
     border: 0.854px solid #4E6AC4;
+    background: #202432;
 
 }
 
