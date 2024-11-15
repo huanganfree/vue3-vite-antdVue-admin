@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
-        <h3>和风天气开发</h3>
-        <div>获取天气</div>
+        <h2 style="color: red;">获取天气：</h2>
+        <h3>和风天气开发，获取结果如下：</h3>
         <div class="weatherNow">
             <i :class="`qi-${weatherNow.icon}`" ></i>
             <span class="center">{{ weatherNow.text }}</span>
@@ -116,5 +116,6 @@ function initData() {
     height: 506px;
     border-radius: 18px;
     border: 0.854px solid #4E6AC4;
+    padding: 20px;
 }
 </style>

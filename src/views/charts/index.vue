@@ -4,8 +4,8 @@
     <Bar class="marginRight15" />
     <Line class="marginRight15" />
     <StackBar class="marginRight15"/>
-    <Pie class="marginRight15"/>
-    <Weather />
+    <Weather class="marginRight15" />
+    <Pie/>
   </div>
 </template>
 
