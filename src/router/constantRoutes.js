@@ -89,7 +89,7 @@ export default [
     name: 'animation',
     component: () => import('@/components/PageView/PageView.vue'),
     meta: {
-      icon: 'icon-tubiao-bingtu',
+      icon: 'icon-cssdonghua',
       title: '动画'
     },
     redirect: {name: 'threejs'},
@@ -99,8 +99,17 @@ export default [
         name: 'threejs',
         component: () => import('../views/animation/threejs.vue'),
         meta: {
-          icon: 'icon-tubiao-bingtu',
+          icon: 'icon-cssdonghua',
           title: 'threejs'
+        }
+      },
+      {
+        path: 'waterRipple',
+        name: 'waterRipple',
+        component: () => import('../views/animation/waterRipple.vue'),
+        meta: {
+          icon: 'icon-cssdonghua',
+          title: '水波纹'
         }
       }
     ]
