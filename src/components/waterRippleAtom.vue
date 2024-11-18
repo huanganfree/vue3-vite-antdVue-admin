@@ -1,25 +1,41 @@
 <template>
-    <div class="animate-wave">
-        <WaterRippleAtom />
+    <div class="parent">
+        <img class="img" src="@/assets/images/face.png" alt="">
+        <div class="ww w1"></div>
+        <div class="ww w2"></div>
+        <div class="ww w3"></div>
+        <div class="ww w4"></div>
     </div>
 </template>
 
 <script setup>
-import WaterRippleAtom from '../../components/waterRippleAtom.vue';
 
+const props = defineProps({
+    imgUrl: {
 
+    }
+})
 </script>
 
 <style scoped lang='less'>
-.animate-wave {
-    width: 500px;
-    height: 500px;
-    position: relative;
-    margin: 0 auto;
-    background: rgb(46, 54, 65);
+.parent {
+    width: 16px;
+    height: 16px;
+    position: absolute;
 }
 
-.animate-wave .ww {
+
+.img {
+    position: absolute;
+    z-index: 12;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+}
+
+.ww {
     background: #00FF9480;
     position: absolute;
     border-radius: 50%;
@@ -31,27 +47,16 @@ import WaterRippleAtom from '../../components/waterRippleAtom.vue';
     height: 16px;
 }
 
-.img {
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    z-index: 12;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    width: 16px;
-    height: 16px;
-}
 
-.animate-wave .w2 {
+.w2 {
     animation-delay: 1s;
 }
 
-.animate-wave .w3 {
+.w3 {
     animation-delay: 2s;
 }
 
-.animate-wave .w4 {
+.w4 {
     animation-delay: 3s;
 }
 
