@@ -1,7 +1,6 @@
 <template>
     <div class="parent">
         <div class="wrapper" ref="containerRef"></div>
-        <div class="text">接啊哈哈发</div>
     </div>
 </template>
 
@@ -117,8 +116,8 @@ function updateLabels(chart) {
 }
 
 .wrapper {
-    width: 157px;
-    height: 157px;
+    width: 398px;
+    height: 506px;
     border-radius: 18px;
     border: 0.854px solid #4E6AC4;
     background: #202432;
