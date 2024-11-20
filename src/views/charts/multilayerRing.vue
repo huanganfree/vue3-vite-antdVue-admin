@@ -12,22 +12,24 @@ const {
 } = useChartsBuild(initData)
 
 function initData(myChart) {
-    var data = [{
-        "name": "短信",
-        "value": 1369
-    }, {
-        "name": "客服",
-        "value": 1476
-    }, {
-        "name": "外呼",
-        "value": 1845
-    }, {
-        "name": "网厅",
-        "value": 1476
-    }, {
-        "name": "手厅",
-        "value": 2997
-    }].sort(function (a, b) { return b.value - a.value })
+    var data = [
+        {
+            "name": "短信",
+            "value": 1369
+        }, {
+            "name": "客服",
+            "value": 1589
+        }, {
+            "name": "外呼",
+            "value": 1845
+        }, {
+            "name": "网厅",
+            "value": 1476
+        }, {
+            "name": "手厅",
+            "value": 2997
+        }
+    ]
 
     var max = Math.max(...data.map(item => item.value)) + 1000
 
@@ -42,8 +44,8 @@ function initData(myChart) {
                 type: 'pie',
                 clockWise: false,
                 hoverAnimation: false,
-                radius: [63 - i * 8 + '%', 58 - i * 8 + '%'],
-                center: ["45%", "50%"],
+                radius: [62 - i * 8 + '%', 58 - i * 8 + '%'],
+                center: ["50%", "50%"],
                 label: {
                     show: false
                 },
@@ -54,7 +56,6 @@ function initData(myChart) {
                     labelLine: {
                         show: false
                     },
-                    // borderWidth: 3
                 },
                 data: [
                     {
@@ -62,15 +63,12 @@ function initData(myChart) {
                         name: '',
                         itemStyle: {
                             color: '#2C303C',
-                            // color: 'red',
-                            borderWidth: 0
                         }
                     },
                     {
                         value: data[i].value,
                         name: data[i].name,
                         itemStyle: {
-                            borderWidth: 3,
                             borderRadius: 10,
                             borderJoin: 'miter',
                             borderMiterLimit: 20
@@ -84,6 +82,9 @@ function initData(myChart) {
 
     var optionData = getData(data)
     const option = {
+        tooltip: {
+            show: true,
+        },
         backgroundColor: 'rgb(33,38,51)',
         color: ['rgb(14, 109, 233)', 'rgb(172, 78, 211)', 'rgb(230, 175, 8)', 'rgb(0, 175, 109)', ' rgb(211, 78, 106)'],
         series: optionData.series
