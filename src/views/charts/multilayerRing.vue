@@ -4,7 +4,6 @@
 </template>
 
 <script setup>
-import { color } from "echarts";
 import { useChartsBuild } from "./useChartsBuild";
 
 const {
@@ -71,7 +70,8 @@ function initData(myChart) {
                         itemStyle: {
                             borderRadius: 10,
                             borderJoin: 'miter',
-                            borderMiterLimit: 20
+                            borderMiterLimit: 20,
+                            color: 'red'
                         }
                     }
                 ]
@@ -83,10 +83,9 @@ function initData(myChart) {
     var optionData = getData(data)
     const option = {
         tooltip: {
-            show: true,
+            show: false,
         },
         backgroundColor: 'rgb(33,38,51)',
-        color: ['rgb(14, 109, 233)', 'rgb(172, 78, 211)', 'rgb(230, 175, 8)', 'rgb(0, 175, 109)', ' rgb(211, 78, 106)'],
         series: optionData.series
     }
     myChart.setOption(option);

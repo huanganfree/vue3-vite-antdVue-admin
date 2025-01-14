@@ -1,22 +1,34 @@
 <template>
-    <div class="animate-wave">
-        <WaterRippleAtom />
+    <div class="wrapper parent">
+        <div class="animate-wave marginRight15">
+            <WaterRippleAtom />
+        </div>
+        <Border class="marginRight15"/>
+        <Drag />
     </div>
+
 </template>
 
 <script setup>
 import WaterRippleAtom from '../../components/waterRippleAtom.vue';
+import Border from './border.vue';
+import Drag from './drag.vue';
 
 
 </script>
 
 <style scoped lang='less'>
+.parent{
+    display: flex;
+    top: 20%;
+    left: 20%;
+}
 .animate-wave {
-    width: 500px;
-    height: 500px;
     position: relative;
-    margin: 0 auto;
     background: rgb(46, 54, 65);
+    width: 398px;
+    height: 506px;
+    border-radius: 18px;
 }
 
 .animate-wave .ww {

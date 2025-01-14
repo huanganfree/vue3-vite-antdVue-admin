@@ -8,6 +8,7 @@
 import { normalFlat } from "three/webgpu";
 import { useChartsBuild } from "./useChartsBuild";
 import { color } from "echarts";
+import { label } from "three/webgpu";
 
 const {
     containerRef
@@ -21,10 +22,10 @@ function initData(myChart) {
             // 副标题
             subtext: "50%",
             // 主副标题间距
-            itemGap: 4,
+            itemGap: 8,
             x: 'center',
             y: 'center',
-            top: '30%',
+            top: '44%',
             // 主标题样式
             textStyle: {
 
@@ -55,9 +56,18 @@ function initData(myChart) {
         },
         series: [
             {
-                radius: ['76%', '86%'],
+                radius: ['46%', '56%'],
                 type: 'pie',
-                data: [2, 4, 5],
+                data: [
+                    {
+                        name: '1',
+                        value: 2
+                    },
+                    {
+                        name: '2',
+                        value: 3
+                    }
+                ],
                 emphasis: {
                     disabled: true
                 },
@@ -67,9 +77,12 @@ function initData(myChart) {
                     }
                 },
                 itemStyle: {
-                    borderRadius: 10,
+                    borderRadius: 21,
                     borderJoin: 'miter',
                     borderMiterLimit: 20
+                },
+                label: { // 去除饼图的文本标签
+                    show: false
                 }
             }
         ]

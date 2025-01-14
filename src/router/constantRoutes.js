@@ -85,6 +85,27 @@ export default [
     ]
   },
   {
+    path: 'iframe',
+    name: 'iframe',
+    component: () => import('@/components/PageView/iframe.vue'),
+    meta: {
+      icon: 'icon-tubiao-bingtu',
+      title: 'iframe'
+    },
+    redirect: {name: 'iframe'},
+    children: [
+      {
+        path: 'map',
+        name: 'map',
+        component: () => import('../views/charts/index.vue'),
+        meta: {
+          icon: 'icon-tubiao-bingtu',
+          title: '图表系列'
+        }
+      }
+    ]
+  },
+  {
     path: 'animation',
     name: 'animation',
     component: () => import('@/components/PageView/PageView.vue'),
@@ -100,7 +121,7 @@ export default [
         component: () => import('../views/animation/threejs.vue'),
         meta: {
           icon: 'icon-cssdonghua',
-          title: 'threejs'
+          title: 'three.js相关'
         }
       },
       {

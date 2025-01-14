@@ -20,9 +20,7 @@ import Weather from './weather.vue';
 import MultilayerRing from './multilayerRing.vue';
 </script>
 <style lang="less" scoped>
-.marginRight15 {
-  margin: 0 15px 10px 0;
-}
+
 
 .charts {
   display: flex;
