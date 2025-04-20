@@ -87,7 +87,7 @@ export default [
   {
     path: 'iframe',
     name: 'iframe',
-    component: () => import('@/components/PageView/iframe.vue'),
+    component: () => import('@/components/PageView/PageView.vue'),
     meta: {
       icon: 'icon-tubiao-bingtu',
       title: 'iframe'
@@ -131,6 +131,26 @@ export default [
         meta: {
           icon: 'icon-cssdonghua',
           title: '水波纹'
+        }
+      }
+    ]
+  },
+  {
+    path: 'audio',
+    name: 'audio',
+    component: () => import('@/components/PageView/PageView.vue'),
+    meta: {
+      icon: 'icon-caidanguanli',
+      title: '音频'
+    },
+    children: [
+      {
+        path: 'audio-speed',
+        name: 'audio-speed',
+        component: () => import('@/views/audio/audioSpeed.vue'),
+        meta: {
+          icon: 'icon-caidanguanli',
+          title: '音频加速'
         }
       }
     ]
