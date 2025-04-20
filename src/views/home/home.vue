@@ -44,7 +44,6 @@ function drawCoverImage(vEle) {
   const img = c.toDataURL("image/png");
   coverImg.value = img;
   loading.value = false;
-  videoRef.value.play();
 }
 
 </script>
