@@ -38,7 +38,7 @@ function addHomeRouter(params) {
     component: () => import('@/views/home/home.vue'),
     meta: {
       icon: 'icon-zhuye',
-      title: '视频封面'
+      title: '主页'
     }
   }
 
