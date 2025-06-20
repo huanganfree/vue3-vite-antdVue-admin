@@ -1,7 +1,7 @@
 <template>
   <a-layout class="layout-content">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible class="layout-sider">
-      <div class="project-name" v-if="!collapsed">vue+vite</div>
+      <div class="project-name" v-if="!collapsed">管理后台</div>
       <Menu @target-menu="handleGetTargetMenu" />
     </a-layout-sider>
     <a-layout>

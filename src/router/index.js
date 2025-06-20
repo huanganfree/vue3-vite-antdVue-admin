@@ -62,6 +62,7 @@ function generatorNamePath(routes, namePath) {
 sessionStorage.setItem('const_routes', JSON.stringify(ConstantRoutes))
 
 router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title}-管理后台` || 'vue3-admin'
   next()
 })
 
