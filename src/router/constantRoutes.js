@@ -156,6 +156,26 @@ export default [
     ]
   },
   {
+    path: 'affix',
+    name: 'affix',
+    component: () => import('@/components/PageView/PageView.vue'),
+    meta: {
+      icon: 'icon-caidanguanli',
+      title: '吸顶'
+    },
+    children: [
+      {
+        path: 'affix-speed',
+        name: 'affix-speed',
+        component: () => import('@/views/affix/affix.vue'),
+        meta: {
+          icon: 'icon-caidanguanli',
+          title: '吸顶'
+        }
+      }
+    ]
+  },
+  {
     path: 'system',
     name: 'system',
     component: () => import('@/components/PageView/PageView.vue'),

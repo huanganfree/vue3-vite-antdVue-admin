@@ -5,7 +5,7 @@
       <Menu @target-menu="handleGetTargetMenu" />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header class="layout-header" style="background: #fff; padding: 0">
+      <!-- <a-layout-header class="layout-header" style="background: #fff; padding: 0">
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
         <a-breadcrumb>
@@ -13,7 +13,7 @@
             <a @click="$router.push({ name: item.path })">{{ item.name }}</a>
           </a-breadcrumb-item>
         </a-breadcrumb>
-      </a-layout-header>
+      </a-layout-header> -->
       <a-layout-content :style="{}" class="layout-content-area">
         <!-- <Tabs></Tabs> -->
         <router-view></router-view>
