@@ -58,7 +58,7 @@ export default [
         component: () => import('../views/miniProgram/h5ToMiniProgram.vue'),
         meta: {
           icon: 'icon-H',
-          title: 'h5返回小程序'
+          title: 'h5如何返回小程序'
         }
       }
     ]
@@ -72,27 +72,6 @@ export default [
       title: '图表'
     },
     redirect: {name: 'map'},
-    children: [
-      {
-        path: 'map',
-        name: 'map',
-        component: () => import('../views/charts/index.vue'),
-        meta: {
-          icon: 'icon-tubiao-bingtu',
-          title: '图表系列'
-        }
-      }
-    ]
-  },
-  {
-    path: 'iframe',
-    name: 'iframe',
-    component: () => import('@/components/PageView/PageView.vue'),
-    meta: {
-      icon: 'icon-tubiao-bingtu',
-      title: 'iframe'
-    },
-    redirect: {name: 'iframe'},
     children: [
       {
         path: 'map',
@@ -130,7 +109,7 @@ export default [
         component: () => import('../views/animation/waterRipple.vue'),
         meta: {
           icon: 'icon-cssdonghua',
-          title: '水波纹'
+          title: '水波纹和js拖拽'
         }
       }
     ]
@@ -171,9 +150,28 @@ export default [
         meta: {
           icon: 'icon-caidanguanli',
           title: '吸顶'
+        },
+      }]
+    },
+        { 
+      path: 'video',
+      name: 'video',
+      component: () => import('@/components/PageView/PageView.vue'),
+      meta: {
+        icon: 'icon-caidanguanli',
+        title: '视频'
+      },
+      children: [
+        {
+          path: 'video-Screenshot',
+          name: 'video-Screenshot',
+          component: () => import('@/views/video/video.vue'),
+          meta: {
+            icon: 'icon-caidanguanli',
+            title: '视频封面截图'
+          }
         }
-      }
-    ]
+      ]
   },
   {
     path: 'system',

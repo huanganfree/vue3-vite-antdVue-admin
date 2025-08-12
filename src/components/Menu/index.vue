@@ -69,7 +69,7 @@ export default {
         .getRoutes()
         .find((r) => this.selectedKeys.includes(r.name));
       this.$emit('target-menu', targetMenu)
-      this.openKeys = targetMenu.meta.namePath.slice(0).map(item => item.path);
+      this.openKeys = [...targetMenu.meta.namePath.slice(0).map(item => item.path), ...this.openKeys];
     },
     handleSelect({ selectedKeys }) {
       this.selectedKeys = selectedKeys;
