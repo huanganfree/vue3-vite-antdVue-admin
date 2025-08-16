@@ -2,7 +2,7 @@
   "name": "vue-vite-antdvue-admin",
   "version": "0.0.0",
   "scripts": {
-    "dev:development": "vite dev",
+    "dev": "vite dev",
     "build:prod": "vite build --mode prod",
     "preview": "vite preview --port 4173",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
